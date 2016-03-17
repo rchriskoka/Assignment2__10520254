@@ -1,0 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Edwin Etornam
+ */
+import java.util.Scanner;
+public class HiLoLimited {
+    public static void main(String[] args){
+        //variable declaration and scanner object creation
+        int compuGuess, userGuess;
+        int tries = 1;
+        Scanner input = new Scanner (System.in);
+        
+        //generate random number and store in compuGuess
+        compuGuess = (int)(100*Math.random()+1);
+        //prompt statement
+        System.out.println("I have chosen a number between 1 and 10. Try to guess it.");
+        System.out.print("First guess: ");
+        //accept user's input
+        userGuess = input.nextInt();
+        tries++;
+        
+        //tests
+        while (userGuess != compuGuess && tries<=7){
+            System.out.println("That is incorrect. Guess again.");
+            System.out.print("Guess # "+tries +": ");
+            userGuess = input.nextInt();
+            tries++;
+        if (userGuess < compuGuess){
+            System.out.print("Sorry, you are too low.");
+            System.out.println(" I was thinking of "+compuGuess);
+        }
+        else{
+            System.out.print("Sorry, you are too high.");
+            System.out.println(" I was thinking of "+compuGuess);
+        }
+            
+        }
+        
+        if (userGuess == compuGuess){
+            System.out.println("That's right! You are a good guesser");
+            System.out.println("It only took you "+tries+ " trie(s).");
+        }
+        
+    }
+    
+}
